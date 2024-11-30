@@ -4,9 +4,9 @@
       :imgUrl="cocktail.strDrinkThumb"
       :isBackBtnVisible="true"
     >
-      <div class="wrapper">
-        <div class="info">
-          <div class="title">{{ cocktail.strDrink }}</div>
+      <div class="flex justify-center items-center">
+        <div class="py-[80px] text-center">
+          <div class="text-muted !pt-[35px] text-[30px] text-center">{{ cocktail.strDrink }}</div>
           <div class="line"></div>
           <ul class="list">
             <li v-for="(item, key) in ingredients" :key="key" class="list-item">
@@ -14,7 +14,7 @@
               <template v-if="item.measure"> | {{ item.measure }} </template>
             </li>
           </ul>
-          <div class="instructions">
+          <div class="instructions w-[520px] mx-auto font-[20px]">
             {{ cocktail.strInstructions }}
           </div>
         </div>
@@ -54,7 +54,3 @@ async function getCocktail() {
 }
 getCocktail();
 </script>
-
-<style lang="scss" scoped>
-  @import "../assets/styles/main";
-</style>

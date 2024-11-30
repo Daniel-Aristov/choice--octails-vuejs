@@ -1,18 +1,18 @@
 <template>
-  <div class="root">
-    <div class="img background-image"></div>
-    <div class="main">
-      <div class="btns">
+  <div class="flex h-[100vh] overflow-hidden bg-[#141414]">
+    <div class="background-image w-[50%] no-repeat cover bg-center hidden lg:block"></div>
+    <div class="relative w-full lg:w-[50%] py-[30px] px-[20px] md:px-[40px]">
+      <div class="flex justify-between items-center">
         <el-button
           v-if="isBackBtnVisible"
           type="primary"
           :icon="Back"
-          class="back-btn"
+          class="!border-none !bg-[#9400de]"
           @click="goBack"
           circle
         />
         <el-button class="random-btn" @click="goForCocktailRandom"
-          >Get random cocktail</el-button
+          >Получить рандомный коктель</el-button
         >
       </div>
       <slot></slot>
@@ -57,41 +57,11 @@ function goBack() {
 <style lang="scss">
 @import "../assets/styles/main";
 
-.root {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-  background-color: $background;
-}
-
-.img {
-  width: 50%;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: cover;
-}
-
-.background-image {
-  background-image: url('/src/assets/img/bg-1.jpg');
-}
-
-.main {
-  position: relative;
-  width: 50%;
-  padding: 32px 40px;
-}
-
-.btns {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .random-btn {
   position: absolute;
   top: 32px;
   right: 40px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-family: "Raleway", "Arial", sans-serif;
   background-color: $accent;
   border-color: $accent;
@@ -102,16 +72,6 @@ function goBack() {
     background-color: darken($color: $accent, $amount: 10%);
     border-color: darken($color: $accent, $amount: 10%);
     color: $text;
-  }
-}
-
-.back-btn {
-  background-color: transparent;
-  border-color: white;
-
-  &:hover {
-    background-color: transparent;
-    border-color: $accent;
   }
 }
 </style>

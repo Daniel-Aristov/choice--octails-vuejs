@@ -3,18 +3,18 @@
     :backFunc="removeIngredient"
     :isBackBtnVisible="!!ingredient"
   >
-    <div class="wrapper">
-      <div v-if="!ingredient || !cocktails" class="info">
-        <div class="title">Choose your drink</div>
+    <div class="flex justify-center items-center">
+      <div v-if="!ingredient || !cocktails" class="py-[80px] text-center">
+        <div class="text-muted !pt-[35px] text-[30px] text-center">Выбери свой напиток</div>
         <div class="line"></div>
-        <div class="select-wrapper">
+        <div class="!pt-[40px]">
           <el-select
             v-model="rootStore.ingredient"
-            placeholder="Choose main ingredient"
+            placeholder="Выбери основной ингредиент"
             size="large"
             filterable
             allow-create
-            class="select"
+            class="max-w-[260px] !pointer"
             @change="getCocktails"
           >
             <el-option
@@ -25,21 +25,21 @@
             />
           </el-select>
         </div>
-        <p class="text">
-          Try our delicious cocktail recipes for every occasion. Find delicious
-          cocktail recipes by ingredient through our cocktail generator.
+        <p class="text-muted !pt-[30px] text-[19px] text-center">
+          Попробуй наши вкусные рецепты коктейлей на любой случай жизни. Находите
+          рецепты коктейлей по ингредиентам с помощью нашего генератора коктейлей!
         </p>
-        <img src="/src/assets/img/cocktails.png" alt="Cocktails" class="img" />
+        <img src="/src/assets/img/cocktails.png" alt="коктели" class="mx-auto mt-[70px]" />
       </div>
-      <div v-else class="info">
-        <div class="title">Cocktail with {{ ingredient }}</div>
+      <div v-else class="py-[80px] text-center">
+        <div class="text-muted !pt-[35px] text-[30px] text-center">Коктель с {{ ingredient }}</div>
         <div class="line"></div>
-        <div class="cocktails">
+        <div class="flex justify-start flex-wrap max-h-[400px] overflow-y-auto mt-[50px]">
           <CocktailThumb
             v-for="cocktail in cocktails"
             :key="cocktail.idDrink"
             :cocktail="cocktail"
-            class="cocktails__item"
+            class="basis-1/3"
           />
         </div>
       </div>
@@ -66,37 +66,3 @@ function removeIngredient() {
   rootStore.setIngredient(null);
 }
 </script>
-
-<style lang="scss" scoped>
-  @import "../assets/styles/main";
-
-  .select-wrapper {
-    padding-top: 30px;
-  }
-
-  .select {
-    width: 260px;
-  }
-
-  .text {
-    padding-top: 30px;
-    line-height: 36px;
-    letter-spacing: 0.2em;
-    color: $textMuted;
-    max-width: 516px;
-    margin: 0 auto;
-  }
-
-  .cocktails {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    max-height: 400px;
-    overflow-y: auto;
-    margin-top: 50px;
-  }
-
-  .cocktails__item {
-    flex-basis: 33.3%;
-  }
-</style>

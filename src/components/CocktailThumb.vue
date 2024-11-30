@@ -1,8 +1,8 @@
 <template>
 	<router-link :to="`/cocktails/${cocktail.idDrink}`">
-		<div class="cocktail-wrapper">
-			<div :style="`background-image: url(${cocktail.strDrinkThumb})`" class="pic"></div>
-			<div class="name">{{ cocktail.strDrink }}</div>
+		<div class="flex justify-start items-center flex-col">
+			<div :style="`background-image: url(${cocktail.strDrinkThumb})`" class="w-[120px] h-[120px] mx-auto bg-center bg-no-repeat bg-cover"></div>
+			<div class="pt-[10px] max-w-[130px]">{{ cocktail.strDrink }}</div>
 		</div>
 	</router-link>
 </template>
@@ -15,30 +15,3 @@
 		}
 	})
 </script>
-
-<style lang="scss" scoped>
-	@import '../assets/styles/main';
-
-	.cocktail-wrapper {
-		display: flex;
-		justify-content: flex-start;
-		flex-direction: column;
-		flex-basis: 33.3%;
-		align-items: center;
-	}
-
-	.pic {
-		width: 120px;
-		height: 120px;
-		margin: 0 auto;
-		background-repeat: no-repeat;
-		background-position: 50% 50%;
-		background-size: 100%;
-	}
-
-	.name {
-		padding-top: 15px;
-		letter-spacing: 0.1em;
-		max-width: 130px;
-	}
-</style>

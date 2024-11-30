@@ -4,21 +4,21 @@
       :imgUrl="cocktail.strDrinkThumb"
       :isBackBtnVisible="true"
     >
-      <div class="wrapper">
-        <div class="info">
-          <div class="title">{{ cocktail.strDrink }}</div>
+      <div class="flex justify-center items-center">
+        <div class="py-[80px] text-center">
+          <div class="text-muted !pt-[35px] text-[30px] text-center">{{ cocktail.strDrink }}</div>
           <div class="line"></div>
-          <div class="slider">
-            <swiper :slides-per-view="3" :space-between="50" class="swiper">
+          <div class="py-[50px] ml-[20px]">
+            <swiper :slides-per-view="3" :space-between="50" class="w-[586px]">
               <swiper-slide v-for="(ingredient, key) in ingredients" :key="key">
-								<img :src="`${INGREDIENT_PIC}/${ingredient}-Small.png`">
-                <p class="name">
+								<img :src="`${INGREDIENT_PIC}/${ingredient}-Small.png`" class="mx-auto">
+                <p class="pt-[20px]">
 									{{ ingredient }}
 								</p>
               </swiper-slide>
             </swiper>
           </div>
-          <div class="instructions">
+          <div class="instructions w-full md:w-[520px] mx-auto font-[20px] overflow-y-auto">
             {{ cocktail.strInstructions }}
           </div>
         </div>
@@ -52,20 +52,3 @@ async function getCocktail() {
 }
 getCocktail();
 </script>
-
-<style lang="scss" scoped>
-	@import "../assets/styles/main";
-
-	.slider {
-		padding: 50px 0;
-	}
-
-	.swiper {
-		width: 586px;
-	}
-
-	.name {
-		padding-top: 20px;
-
-	}
-</style>

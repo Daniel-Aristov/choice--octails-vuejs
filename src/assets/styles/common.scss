@@ -11,6 +11,11 @@ body, html {
 	color: $text;
 }
 
+html * {
+	scrollbar-width: thin;
+  scrollbar-color: $accent $textMuted;
+}
+
 a {
 	color: inherit;
 	text-decoration: none;
@@ -24,22 +29,14 @@ ul, li {
 	list-style: none;
 }
 
-.wrapper {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+*::-webkit-scrollbar,
+html *::-webkit-scrollbar {
+  height: 12px;
+  width: 12px;
 }
 
-.info {
-	padding: 80px 0;
-	text-align: center;
-}
-
-.title {
-	font-size: 2rem;
-	font-weight: 500;
-	letter-spacing: 0.2em;
-	text-transform: uppercase;
+.text-muted {
+	color: $textMuted;
 }
 
 .line {
@@ -47,6 +44,10 @@ ul, li {
 	height: 3px;
 	background-color: $accent;
 	margin: 32px auto 0;
+}
+
+.background-image {
+  background-image: url('/src/assets/img/bg-1.jpg');
 }
 
 .list {
@@ -74,13 +75,4 @@ ul, li {
 			background: url('/src/assets/img/heart.png') no-repeat 50%;
 		}
 	}
-}
-
-.instructions {
-	width: 516px;
-	margin: 0 auto;
-	font-size: 1.2rem;
-	line-height: 30;
-	letter-spacing: 0.1em;
-	color: $textMuted;
 }
