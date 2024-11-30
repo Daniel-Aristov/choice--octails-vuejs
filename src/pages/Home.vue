@@ -1,6 +1,5 @@
 <template>
   <AppLayout
-    :imgUrl="`/src/assets/img/bg-1.jpg`"
     :backFunc="removeIngredient"
     :isBackBtnVisible="!!ingredient"
   >

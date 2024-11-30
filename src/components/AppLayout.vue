@@ -1,6 +1,6 @@
 <template>
   <div class="root">
-    <div :style="`background-image: url(${imgUrl})`" class="img"></div>
+    <div class="img background-image"></div>
     <div class="main">
       <div class="btns">
         <el-button
@@ -27,10 +27,6 @@ import { computed } from "vue";
 import { ROUTES_PATHS } from "@/constants";
 
 const props = defineProps({
-  imgUrl: {
-    type: String,
-    required: true,
-  },
   backFunc: {
     type: Function,
   },
@@ -73,6 +69,10 @@ function goBack() {
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
+}
+
+.background-image {
+  background-image: url('/src/assets/img/bg-1.jpg');
 }
 
 .main {
